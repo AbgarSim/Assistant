@@ -6,6 +6,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>Server</module>
+        <module>UI</module>
     </modules>
 
     <parent>
