@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>assistant</artifactId>
+        <groupId>com.assistant</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>db</artifactId>
+
+
+    <properties>
+        <flyway.version>3.2.1</flyway.version>
+        <!--<postgresql.driver.version>8.0.16</postgresql.driver.version>-->
+        <database.driver>com.postgresql.jdbc.Driver</database.driver>
+        <database.url>jdbc:postgresql://localhost:5432/assistant-db?autoreconnect=true</database.url>
+        <database.username>postgres</database.username>
+        <database.password>123</database.password>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>${flyway.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+    </dependencies>
+
+    <!--<build>
+        <plugins>
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>${flyway.version}</version>
+                <configuration>
+                    <driver>${database.driver}</driver>
+                    <url>${database.url}</url>
+                    <user>${database.username}</user>
+                    <password>${database.password}</password>
+                    <schemas>
+                        <schema>customer_dev</schema>
+                    </schemas>
+                    <locations>
+                        <location>sql/migrations</location>
+                    </locations>
+                    <encoding>ISO-8859-1</encoding>
+                    <cleanOnValidationError>true</cleanOnValidationError>
+                    <placeholders>
+                        <email_type.primary>Primary</email_type.primary>
+                        <email_type.work>Work</email_type.work>
+                        <phone_type.home>Home</phone_type.home>
+                    </placeholders>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flyway database migration</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>clean</goal>
+                            <goal>baseline</goal>
+                            <goal>migrate</goal>
+                            <goal>info</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>-->
+
+</project>
