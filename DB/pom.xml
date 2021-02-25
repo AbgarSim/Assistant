@@ -13,7 +13,7 @@
 
 
     <properties>
-        <flyway.version>3.2.1</flyway.version>
+        <flyway.version>4.0.3</flyway.version>
         <!--<postgresql.driver.version>8.0.16</postgresql.driver.version>-->
         <database.driver>com.postgresql.jdbc.Driver</database.driver>
         <database.url>jdbc:postgresql://localhost:5432/assistant-db?autoreconnect=true</database.url>
@@ -34,45 +34,13 @@
         </dependency>
     </dependencies>
 
-    <!--<build>
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>${flyway.version}</version>
-                <configuration>
-                    <driver>${database.driver}</driver>
-                    <url>${database.url}</url>
-                    <user>${database.username}</user>
-                    <password>${database.password}</password>
-                    <schemas>
-                        <schema>customer_dev</schema>
-                    </schemas>
-                    <locations>
-                        <location>sql/migrations</location>
-                    </locations>
-                    <encoding>ISO-8859-1</encoding>
-                    <cleanOnValidationError>true</cleanOnValidationError>
-                    <placeholders>
-                        <email_type.primary>Primary</email_type.primary>
-                        <email_type.work>Work</email_type.work>
-                        <phone_type.home>Home</phone_type.home>
-                    </placeholders>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>flyway database migration</id>
-                        <phase>pre-integration-test</phase>
-                        <goals>
-                            <goal>clean</goal>
-                            <goal>baseline</goal>
-                            <goal>migrate</goal>
-                            <goal>info</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
-    </build>-->
-
+    </build>
 </project>
