@@ -1,5 +1,6 @@
 package com.assistant.server.service;
 
+import com.assistant.server.infrastructure.entity.Dummy;
 import com.assistant.server.infrastructure.repository.DummyRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -8,9 +9,17 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class DummyService {
 
-	private final DummyRepository dummyRepository;
+	private final DummyRepository repository;
 
 	public Long getDummyNumber() {
-		return dummyRepository.findFirstBy().getNum();
+		return repository.findFirstBy().getNum();
+	}
+
+	public boolean exists(Dummy dummy) {
+		return repository.existsById(dummy.getId());
+	}
+
+	public Dummy saveDummy(Dummy dummy) {
+		return repository.save(dummy);
 	}
 }

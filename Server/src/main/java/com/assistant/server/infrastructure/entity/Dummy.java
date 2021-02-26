@@ -10,6 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "t_dummy")
 public class Dummy {
+
 	@Id
 	private Long id;
 
