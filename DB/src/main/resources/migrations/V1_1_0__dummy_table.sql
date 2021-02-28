@@ -1,8 +1,9 @@
+CREATE TABLE t_dummy
+(
 
-
-
-CREATE TABLE t_dummy (
-	num int default 1
+    id int NOT NULL,
+    num int default 1,
+    CONSTRAINT t_dummy_pk PRIMARY KEY (id)
 );
 
-INSERT INTO t_dummy (num) VALUES(1);
+INSERT INTO t_dummy (id, num) VALUES (1,1);
