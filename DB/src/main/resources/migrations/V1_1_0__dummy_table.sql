@@ -1,8 +1,8 @@
 CREATE TABLE t_dummy
 (
 
-    id int NOT NULL,
-    num int default 1,
+    id bigint NOT NULL,
+    num bigint default 1,
     CONSTRAINT t_dummy_pk PRIMARY KEY (id)
 );
 
