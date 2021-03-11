@@ -7,7 +7,7 @@ DB
 - nothing yet
 
 Server
-- Hibernate setup and link to current db (dummy table)
+- ~~Hibernate setup and link to current db (dummy table)~~
 - Create rest endpoint for Read/Update operations (dummy table)
 - Spring Security Login Page (OAK?)
 
