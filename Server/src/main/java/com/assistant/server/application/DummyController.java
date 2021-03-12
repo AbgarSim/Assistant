@@ -1,7 +1,7 @@
 package com.assistant.server.application;
 
 import com.assistant.server.infrastructure.entity.Dummy;
-import com.assistant.server.service.DummyDTO;
+import com.assistant.server.dto.DummyDTO;
 import com.assistant.server.service.DummyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
