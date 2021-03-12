@@ -1,5 +1,6 @@
-package com.assistant.server.service;
+package com.assistant.server.converter;
 
+import com.assistant.server.dto.DummyDTO;
 import com.assistant.server.infrastructure.entity.Dummy;
 import org.springframework.stereotype.Component;
 
