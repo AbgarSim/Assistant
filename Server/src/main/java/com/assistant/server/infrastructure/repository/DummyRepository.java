@@ -8,4 +8,6 @@ public interface DummyRepository extends CrudRepository<Dummy, Long> {
 	Dummy findFirstBy();
 
 	boolean existsById(Long id);
+
+	Dummy findDummyById(Long id);
 }

@@ -11,15 +11,27 @@ public class DummyService {
 
 	private final DummyRepository repository;
 
-	public Long getDummyNumber() {
-		return repository.findFirstBy().getNum();
+	private final DummyConverter dummyConverter;
+
+	public Dummy getDummy() {
+		return repository.findFirstBy();
 	}
 
-	public boolean exists(Dummy dummy) {
-		return repository.existsById(dummy.getId());
+	public DummyDTO saveDummy(DummyDTO dummyDTO) {
+		return dummyConverter.convertToDto(
+			repository.save(
+				dummyConverter.convertToEntity(dummyDTO)
+			)
+		);
 	}
 
-	public Dummy saveDummy(Dummy dummy) {
-		return repository.save(dummy);
+	public DummyDTO updateDummy(final Long id, final DummyDTO dummyDto) {
+
+		final Dummy dummyById = repository.findDummyById(id);
+
+		final Dummy convertedDummy = dummyConverter.convertToEntity(dummyDto);
+		dummyById.setNum(convertedDummy.getNum());
+
+		return dummyConverter.convertToDto(repository.save(dummyById));
 	}
 }
