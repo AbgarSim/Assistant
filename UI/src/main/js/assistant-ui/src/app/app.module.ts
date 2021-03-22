@@ -13,6 +13,7 @@ import { MatGridListModule } from '@angular/material/grid-list'
 import { MainPageComponent } from './main-page/main-page.component';
 import { DummyComponent } from './dummy/dummy.component';
 import { AppRoutingModule } from './app-routing.module'
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -32,7 +33,10 @@ import { AppRoutingModule } from './app-routing.module'
     MatGridListModule,
 
     //routing
-    AppRoutingModule
+    AppRoutingModule,
+
+    //http
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,6 +5,7 @@ import com.assistant.server.dto.DummyDTO;
 import com.assistant.server.service.DummyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,9 +14,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/dummy")
+@CrossOrigin(origins = "http://localhost:4200")
 public class DummyController {
 
 	private final DummyService service;
@@ -23,6 +27,11 @@ public class DummyController {
 	@GetMapping
 	public ResponseEntity<Dummy> getDummy() {
 		return ResponseEntity.ok(service.getDummy());
+	}
+
+	@GetMapping("/all")
+	public ResponseEntity<List<Dummy>> getDummyList() {
+		return ResponseEntity.ok(service.getDummyList());
 	}
 
 	@PostMapping("/add")
