@@ -19,7 +19,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/dummy")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin("http://localhost:4200")
 public class DummyController {
 
 	private final DummyService service;
@@ -29,7 +29,7 @@ public class DummyController {
 		return ResponseEntity.ok(service.getDummy());
 	}
 
-	@GetMapping("/all")
+	@GetMapping("/list")
 	public ResponseEntity<List<Dummy>> getDummyList() {
 		return ResponseEntity.ok(service.getDummyList());
 	}

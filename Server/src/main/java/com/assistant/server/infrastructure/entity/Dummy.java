@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
 import javax.persistence.Id;
 
@@ -20,6 +21,7 @@ import javax.persistence.Id;
 public class Dummy {
 
 	@Id
+	@GeneratedValue
 	private Long id;
 
 	private Long num;

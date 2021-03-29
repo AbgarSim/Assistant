@@ -1,33 +1,44 @@
-import { Component, OnInit } from '@angular/core';
-import { DummyService } from '../services/dummy.service';
-import { Dummy } from '../services/model/dummy.model';
+import {Component, OnInit} from '@angular/core';
+import {DummyService} from '../service/dummy.service';
+import {Dummy} from '../model/dummy.model';
 
 @Component({
-  selector: 'app-dummy',
-  templateUrl: './dummy.component.html',
-  styleUrls: ['./dummy.component.css']
+    selector: 'app-dummy',
+    templateUrl: './dummy.component.html',
+    styleUrls: ['./dummy.component.css']
 })
 export class DummyComponent implements OnInit {
 
-  dummies: Dummy[];
+    dummies: Dummy[];
 
-  constructor(
-    private dummyService: DummyService
-  ) {
-    this.dummyService.getDummyList().subscribe(
-      response => {
-        this.dummies = response;
-      }
-    )
-   }
+    constructor(
+        private dummyService: DummyService
+    ) {
+        this.dummyService.getDummyList().subscribe(
+            response => {
+                this.dummies = response;
+            },
+            error => {
+                console.log(error);
+            }
+        );
+    }
 
-  ngOnInit(): void {
-    
-  }
+    ngOnInit(): void {
 
-  updateDummy(id: number, dummyToUpdate: Dummy){
-    dummyToUpdate.num += 1;
-    this.dummyService.updateDummy(id, dummyToUpdate).subscribe();
-  }
+    }
+
+    incrementDummy(dummyToUpdate: Dummy): any {
+        dummyToUpdate.num += 1;
+    }
+
+    updateDummy(id: number, dummyToUpdate: Dummy): any {
+        this.dummyService.updateDummy(id, dummyToUpdate).subscribe();
+    }
+
+    createDummy(): any {
+        const dummy: Dummy = {id: null, num: 1};
+        this.dummyService.addDummy(dummy).subscribe();
+    }
 
 }
