@@ -19,7 +19,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/dummy")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin(originPatterns = "http://*")
 public class DummyController {
 
 	private final DummyService service;
