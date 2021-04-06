@@ -1,0 +1,16 @@
+{
+    "helloWorld": "Хэлло ворлд!",
+    "startScreenAppBar": "Экран главного приложения",
+    "startScreenContent": "Первая страница",
+    "dummyScreenAppBar": "Страница фиктивных операций",
+    "dummyCardTextNum": "Фиктивный номер",
+    "dummyCardTextID": "ID",
+    "dummySaveTitle": "Сохранить пустышку",
+    "dummySaveContent": "Сохранить пустышку на сервере?",
+    "dummyUpdateTitle": "Сохранить пустышку",
+    "dummyUpdateContent": "Сохранить пустышку на сервере?",
+    "yes": "Да",
+    "no": "Нет",
+    "increment": "Инкрементировать",
+    "update": "Обновить"
+}

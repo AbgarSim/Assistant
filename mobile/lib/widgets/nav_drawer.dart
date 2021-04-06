@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/screens/dummy_page.dart';
+import 'package:mobile/screens/start_page.dart';
 
+// TODO find out how to check current route and not open route if we are
+// TODO already in that route
 class NavDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -18,8 +22,10 @@ class NavDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.input),
-            title: Text('Welcome'),
-            onTap: () => {},
+            title: Text('Home'),
+            onTap: () => {
+              Navigator.of(context).pushReplacementNamed(StartPage.routeName)
+            },
           ),
           ListTile(
             leading: Icon(Icons.verified_user),
@@ -33,8 +39,10 @@ class NavDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.border_color),
-            title: Text('Feedback'),
-            onTap: () => {Navigator.of(context).pop()},
+            title: Text('Dummy'),
+            onTap: () => {
+              Navigator.of(context).pushReplacementNamed(DummyPage.routeName)
+            },
           ),
           ListTile(
             leading: Icon(Icons.exit_to_app),
