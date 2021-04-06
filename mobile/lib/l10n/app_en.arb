@@ -1,0 +1,19 @@
+{
+    "helloWorld": "Hello World!",
+    "@helloWorld": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "startScreenAppBar": "Home App Screen",
+    "startScreenContent": "First Page",
+    "dummyScreenAppBar": "Dummy operations page",
+    "dummyCardTextNum": "Dummy number is ",
+    "dummyCardTextID": "ID ",
+    "dummySaveTitle": "Save Dummy",
+    "dummySaveContent": "Save Dummy to Server?",
+    "dummyUpdateTitle": "Save Dummy",
+    "dummyUpdateContent": "Save Dummy to Server?",
+    "yes": "Yes",
+    "no": "No",
+    "increment": "Increment",
+    "update": "Update"
+}
