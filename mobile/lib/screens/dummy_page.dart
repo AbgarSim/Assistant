@@ -110,7 +110,7 @@ class _DummyPageState extends State<DummyPage> {
         TextButton(
           child: Text(AppLocalizations.of(context).yes),
           onPressed: () {
-            createDummy(dummyToCreate);
+            dummyDaoService.createDummy(dummyToCreate);
             Navigator.of(context).pop();
           },
         ),
