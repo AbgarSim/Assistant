@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/api/dummy_http.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:ioc/ioc.dart';
+import 'package:mobile/application/dummy_dao_service.dart';
 import 'package:mobile/model/dummy.dart';
 import 'package:mobile/widgets/nav_drawer.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DummyPage extends StatefulWidget {
   static const String routeName = '/dummy';
@@ -14,10 +15,13 @@ class DummyPage extends StatefulWidget {
 class _DummyPageState extends State<DummyPage> {
   Future<List<Dummy>> _futureDummyList;
 
+  DummyDaoService dummyDaoService;
+
   @override
   void initState() {
     super.initState();
-    _futureDummyList = fetchDummyList();
+    dummyDaoService = Ioc().use<DummyDaoService>(DummyDaoService);
+    _futureDummyList = dummyDaoService.fetchDummyList();
   }
 
   @override
@@ -140,7 +144,7 @@ class _DummyPageState extends State<DummyPage> {
         TextButton(
           child: Text(AppLocalizations.of(context).yes),
           onPressed: () {
-            updateDummy(dummyToUpdate);
+            dummyDaoService.updateDummy(dummyToUpdate);
             Navigator.of(context).pop();
           },
         ),

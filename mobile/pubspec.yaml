@@ -24,6 +24,12 @@ dependencies:
   http: 0.13.1
   flutter:
     sdk: flutter
+  ioc: ^0.3.0
+  sqlite3_flutter_libs: # Also use the latest version.
+  moor: # use the latest version
+  path:
+  path_provider:
+  workmanager: ^0.2.0
   flutter_localizations:
     sdk: flutter
   intl: ^0.17.0
