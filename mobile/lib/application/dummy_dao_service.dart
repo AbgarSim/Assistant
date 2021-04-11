@@ -7,27 +7,26 @@ import '../application/http/hearth_beat_http.dart';
 import 'moor/dao/dummy_moore.dart';
 
 class DummyDaoService extends DummyDao {
-  //TODO make these private
-  DummyHttpDao dummyHttpDao;
+  DummyHttpDao _dummyHttpDao;
 
-  DummyMoorDao dummyMoorDao;
+  DummyMoorDao _dummyMoorDao;
 
-  HearthBeatHttp hearthBeatHttp;
+  HearthBeatHttp _hearthBeatHttp;
 
-  DBSyncWorkManager dbSyncWorkManager;
+  DBSyncWorkManager _dbSyncWorkManager;
 
-  DummyDaoService(this.dummyHttpDao, this.hearthBeatHttp, this.dummyMoorDao,
-      this.dbSyncWorkManager);
+  DummyDaoService(this._dummyHttpDao, this._hearthBeatHttp, this._dummyMoorDao,
+      this._dbSyncWorkManager);
 
   @override
   Future<bool> createDummy(Dummy dummy) async {
-    var createdDummy = dummyMoorDao.createDummy(dummy);
+    var createdDummy = _dummyMoorDao.createDummy(dummy);
 
-    hearthBeatHttp.checkPulse().then((value) => {
+    _hearthBeatHttp.checkPulse().then((value) => {
           value
-              ? dummyHttpDao.createDummy(dummy)
-              : dbSyncWorkManager
-                  .queueFunction(() => dummyHttpDao.createDummy(dummy))
+              ? _dummyHttpDao.createDummy(dummy)
+              : _dbSyncWorkManager
+                  .queueFunction(() => _dummyHttpDao.createDummy(dummy))
         });
 
     return createdDummy;
@@ -40,18 +39,18 @@ class DummyDaoService extends DummyDao {
 
   @override
   Future<List<Dummy>> fetchDummyList() {
-    return dummyMoorDao.fetchDummyList();
+    return _dummyMoorDao.fetchDummyList();
   }
 
   @override
   Future<bool> updateDummy(Dummy dummy) {
-    var updatedDummy = dummyMoorDao.updateDummy(dummy);
+    var updatedDummy = _dummyMoorDao.updateDummy(dummy);
 
-    hearthBeatHttp.checkPulse().then((value) => {
+    _hearthBeatHttp.checkPulse().then((value) => {
           value
-              ? dummyHttpDao.updateDummy(dummy)
-              : dbSyncWorkManager
-                  .queueFunction(() => dummyHttpDao.updateDummy(dummy))
+              ? _dummyHttpDao.updateDummy(dummy)
+              : _dbSyncWorkManager
+                  .queueFunction(() => _dummyHttpDao.updateDummy(dummy))
         });
 
     return updatedDummy;

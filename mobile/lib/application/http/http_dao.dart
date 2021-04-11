@@ -1,5 +1,5 @@
 mixin HttpDao {
-  String _url = "localhost:8080";
+  String _url = "10.0.2.2:8080";
 
   String get url {
     return _url;

@@ -6,7 +6,6 @@ import 'package:mobile/route_generator.dart';
 import 'package:mobile/screens/start_page.dart';
 import 'package:mobile/worker/db_sync_work_manager.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
