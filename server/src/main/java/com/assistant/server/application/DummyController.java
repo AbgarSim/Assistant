@@ -29,11 +29,6 @@ public class DummyController {
 		return ResponseEntity.ok(service.getDummy());
 	}
 
-	@GetMapping("/list")
-	public ResponseEntity<List<Dummy>> getDummyList() {
-		return ResponseEntity.ok(service.getDummyList());
-	}
-
 	@PostMapping("/add")
 	public ResponseEntity<DummyDTO> addDummy(@RequestBody DummyDTO dummyDTO) {
 		return ResponseEntity.ok(service.saveDummy(dummyDTO));
