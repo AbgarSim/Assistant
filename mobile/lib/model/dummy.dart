@@ -1,4 +1,10 @@
+
+
 class Dummy {
+  static List<String> columns() {
+    return ["id", "num"];
+  }
+
   int id;
   int num;
 
@@ -22,3 +28,7 @@ class Dummy {
     return Dummy(id: id, num: num);
   }
 }
+
+
+
+
